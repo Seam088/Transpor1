@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<solid android:color="#fc0000" />-->
+    <corners android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        android:bottomRightRadius="20dp"
+        android:bottomLeftRadius="20dp"/>
+    <!--<stroke android:width="2dp" android:color="#e4e4e4" />-->
+    <!--渐变色的角度，举例来说，0代表从上至下颜色渐变；45代表从左至右颜色渐变；90代表从下至上颜色渐变…-->
+    <gradient
+        android:angle="90"
+        android:startColor="#FE4F4C"
+        android:endColor="#FE2F65"
+        />
+</shape>

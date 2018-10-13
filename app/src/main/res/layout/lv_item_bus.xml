@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="170dp"
+    android:layout_marginTop="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_bus_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:background="@drawable/tv_title1"
+            android:gravity="left|center"
+            android:paddingLeft="20dp"
+            android:text="中医院站"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="3dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/t2_2" />
+
+            <TextView
+                android:id="@+id/tv_busId_one"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:gravity="center|left"
+                android:paddingLeft="5dp"
+                android:text="乘坐1号车" />
+
+            <TextView
+                android:id="@+id/tv_busId1_one"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center|right"
+                android:text="1号（101人）" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/t2_2" />
+
+            <TextView
+                android:id="@+id/tv_bustime_one"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:gravity="center|left"
+                android:paddingLeft="5dp"
+                android:text="1号车5分钟到达" />
+
+            <TextView
+                android:id="@+id/tv_bustime1_one"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center|right"
+                android:text="5分钟" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/t2_2" />
+
+            <TextView
+                android:id="@+id/tv_busdistance_one"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:gravity="center|left"
+                android:paddingLeft="5dp"
+                android:text="步行100米，到达中医院站" />
+
+            <TextView
+                android:id="@+id/tv_busdistance1_one"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center|right"
+                android:text="100米" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#6edddddd"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/t2_2" />
+
+            <TextView
+                android:id="@+id/tv_busId_two"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:gravity="center|left"
+                android:paddingLeft="5dp"
+                android:text="乘坐2号车" />
+
+            <TextView
+                android:id="@+id/tv_busId1_two"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center|right"
+                android:text="2号（101人）" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/t2_2" />
+
+            <TextView
+                android:id="@+id/tv_bustime_two"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:gravity="center|left"
+                android:paddingLeft="5dp"
+                android:text="2号车5分钟到达" />
+
+            <TextView
+                android:id="@+id/tv_bustime1_two"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center|right"
+                android:text="5分钟" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/t2_2" />
+
+            <TextView
+                android:id="@+id/tv_busdistance_two"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:gravity="center|left"
+                android:paddingLeft="5dp"
+                android:text="步行100米，到达中医院站" />
+
+            <TextView
+                android:id="@+id/tv_busdistance1_two"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center|right"
+                android:text="100米" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

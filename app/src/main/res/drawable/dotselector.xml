@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    //没选中
+    <item android:drawable="@drawable/focus_nomal" android:state_selected="false"/>
+    //选中
+    <item android:drawable="@drawable/focus_on" android:state_selected="true"/>
+</selector>
