@@ -71,7 +71,6 @@ public class BusFragment extends Fragment {
     }
 
     private class LoadBusDataAsync extends AsyncTask<Void, Pubcar, Void>{
-
         @Override
         protected Void doInBackground(Void... voids) {
             for (int i = 0; i < 4; i++) {

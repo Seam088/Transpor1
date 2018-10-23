@@ -12,7 +12,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
         />
 
     <RelativeLayout
@@ -33,11 +32,11 @@
 
         <TextView
             android:id="@+id/tv_account_carName"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/tv_carPlate"
             android:layout_alignBottom="@+id/tv_carPlate"
-            android:layout_alignEnd="@+id/adv"
+            android:layout_toEndOf="@+id/tv_amount"
             android:text="车主:张三"
             android:textSize="18dp"
             android:textStyle="italic|bold" />
@@ -55,9 +54,10 @@
             android:id="@+id/tv_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/btn_account_recharge"
+            android:layout_alignBottom="@+id/iv_account_carlog"
             android:layout_centerHorizontal="true"
             android:text="余额:100元"
+            android:paddingBottom="4dp"
             android:textColor="#f23232"
             android:textSize="20sp" />
 
@@ -74,10 +74,9 @@
             android:id="@+id/btn_account_recharge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/iv_account_carlog"
-            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@+id/tv_amount"
+            android:layout_alignEnd="@+id/adv"
             android:text="充值"
-            android:layout_marginRight="6dp"
             android:visibility="visible" />
     </RelativeLayout>
 

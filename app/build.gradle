@@ -37,4 +37,6 @@ dependencies {
     implementation files('libs/GsonFormat.jar')
     compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
     implementation files('libs/eventbus-3.0.0.jar')
+    implementation files('libs/httpclient-4.0.1.jar')
+    implementation files('libs/httpcore-4.0.1.jar')
 }

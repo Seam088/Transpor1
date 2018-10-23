@@ -17,6 +17,7 @@ import com.bang.transpor1.fragment.BusFragment;
 import com.bang.transpor1.fragment.CarFragment;
 import com.bang.transpor1.fragment.ExitLogonFragment;
 import com.bang.transpor1.weight.NewMessageNotification;
+import com.bang.transpor1.weight.PayDialog;
 import com.slidingmenu.lib.SlidingMenu;
 
 import java.util.Timer;
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         frameLayout = findViewById(R.id.framelayout);
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.framelayout,new AccountManageFragment());
+        fragmentTransaction.add(R.id.framelayout,new CarFragment());
         fragmentTransaction.commit();
     }
 

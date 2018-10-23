@@ -136,7 +136,7 @@ public class LoginActivity extends AppCompatActivity implements CompoundButton.O
                 }else{
                     SharePreUtil.clearString(getApplicationContext(),ConstantValue.PASSWORD);  //清除sp保存的数据密码
                 }
-                login();  //登录
+                 login();  //登录
                 break;
             case R.id.ib_pwd_gone:  //密码是否可见
                 if (ib_pwd_gone.isSelected()){

@@ -87,7 +87,7 @@ public class PubcalListAdater extends BaseAdapter {
         parentListItem.tv_busId1_one.setText(pubcars.get(position).getData().get(0).getBus() + "号（" + pubcars.get(position).getData().get(0).getPersons() + "人）");
         parentListItem.tv_bustime_one.setText(pubcars.get(position).getData().get(0).getBus() + "号车" + "5分钟到达");
         parentListItem.tv_bustime1_one.setText("5分钟");
-        parentListItem.tv_busdistance_one.setText("步行" + distance.substring(0, distance.indexOf(".") + 3) + "米，到达" + platform);
+        parentListItem.tv_busdistance_one.setText("步行" + distance.substring(0, distance.indexOf(".") + 3) + "米，到达" + platform[position]);
         parentListItem.tv_busdistance1_one.setText(distance.substring(0, distance.indexOf(".") + 3) + "米");
 
         String distance1 = String.valueOf(pubcars.get(position).getData().get(1).getDistance() * 1000);
@@ -96,7 +96,7 @@ public class PubcalListAdater extends BaseAdapter {
         parentListItem.tv_bustime_two.setText(pubcars.get(position).getData().get(1).getBus() + "号车" + "5分钟到达");
         parentListItem.tv_bustime1_two.setText("5分钟");
 
-        parentListItem.tv_busdistance_two.setText("步行" + distance1.substring(0, distance1.indexOf(".") + 3) + "米，到达" + platform);
+        parentListItem.tv_busdistance_two.setText("步行" + distance1.substring(0, distance1.indexOf(".") + 3) + "米，到达" + platform[position]);
         parentListItem.tv_busdistance1_two.setText(distance1.substring(0, distance1.indexOf(".") + 3) + "米");
 
         return convertView;
