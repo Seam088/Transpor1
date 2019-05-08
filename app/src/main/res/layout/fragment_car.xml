@@ -4,15 +4,59 @@
     android:layout_height="match_parent"
     tools:context="com.bang.transpor1.fragment.CarFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.gesture.GestureOverlayView
+        android:id="@+id/gov_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#000000"
+        android:gestureColor="#ffffff"
+        android:fadeEnabled="false"
+        android:gestureStrokeType="multiple"
+        ></android.gesture.GestureOverlayView>
+<!--       <com.bang.transpor1.weight.DrawBoard
+        android:id="@+id/db"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />-->
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="保存"
+        android:layout_gravity="bottom|center"/>
+    />
+    <Button
+        android:id="@+id/btn_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="清空"
+        android:layout_gravity="bottom|center"
+        android:layout_marginLeft="100dp"/>
+<!--    <WebView
+        android:id="@+id/web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></WebView>-->
+<!-- <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:orientation="vertical">
+    <Button
+        android:id="@+id/btn_car"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OKHTTP请求"/>
+    &lt;!&ndash; TODO: Update blank fragment layout &ndash;&gt;
+    <TextView
+        android:id="@+id/tv_car"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="我是公交查询"
         android:textSize="24dp"
         android:gravity="center"/>
-
-
-
+     <ImageView
+         android:id="@+id/iv_car"
+         android:layout_width="match_parent"
+         android:layout_height="300dp" />
+ </LinearLayout>-->
 
 </FrameLayout>

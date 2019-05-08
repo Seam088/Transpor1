@@ -11,6 +11,7 @@ import java.util.List;
 
 public class Car {
 
+
     /**
      * RESULT : S
      * data : [{"stop":false,"carno":"辽A10001","carplate":"宝马","$min":0,"amount":100,"speedmax":1000,"who":"张三","speedmin":0,"$max":10000,"speed":100},{"stop":false,"carno":"辽A10002","carplate":"中华","$min":0,"amount":99,"speedmax":1000,"who":"李四","speedmin":0,"$max":10000,"speed":100},{"stop":false,"carno":"辽A10003","carplate":"奔驰","$min":0,"amount":103,"speedmax":1000,"who":"王五","speedmin":0,"$max":10000,"speed":100},{"stop":false,"carno":"辽A10004","carplate":"马自达","$min":0,"amount":12,"speedmax":1000,"who":"赵六","speedmin":0,"$max":10000,"speed":100},{"stop":false,"carno":"辽A10005","carplate":"斯柯达","$min":0,"amount":0,"speedmax":1000,"who":"上官六","speedmin":0,"$max":10000,"speed":100}]

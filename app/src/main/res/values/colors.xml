@@ -38,6 +38,7 @@
     <color name="gray_light">#E7E7E7</color>
 
     <color name="mask_color">#88888888</color>
+    <color name="touming">#00ffffff</color>
     <color name="main_bg">#10aaaaaa</color>
     <color name="main_bg_userinfo">#10777777</color>
     <color name="temple_header_color">#50888888</color>
@@ -155,5 +156,7 @@
 
     <color name="black">#000000</color>
     <color name="transparent">#00000000</color>
+    <color name="transparent_50">#79ffffff</color>
+    <color name="transparent_70">#bbffffff</color>
     <color name="refresh_bg">#B3E5FC</color> <!-- 500 -->
 </resources>

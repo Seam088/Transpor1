@@ -1,0 +1,90 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bang.transpor1.fragment.LeftHelperFragment">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!-- TODO: Update blank fragment layout -->
+
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/refresh_left_helper"
+                android:layout_width="match_parent"
+                android:layout_height="130dp">
+                <TextView
+                    android:id="@+id/tv_lh_temp"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:background="#FAFAFA"
+                    android:gravity="center"
+                    android:paddingTop="30dp"
+                    android:text="19℃"
+                    android:textColor="#3F51B5"
+                    android:textSize="70sp"
+                    android:textStyle="bold" />
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+            <TextView
+                android:id="@+id/tv_lh_week"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#FAFAFA"
+                android:gravity="center"
+                android:text="星期五"
+                android:textColor="#3F51B5"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_lh_maxmin_temp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#FAFAFA"
+                android:gravity="center"
+                android:text="今天12-24℃"
+                android:textColor="#3F51B5"
+                android:textSize="20sp" />
+
+
+            <LinearLayout
+                android:id="@+id/ll_linechar"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical"></LinearLayout>
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:text="今日生活指数"
+                android:textColor="#5EA2D4"
+                android:textSize="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/view_left_help" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_lifeIndex"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="#eaeaea"
+                android:padding="5dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+</FrameLayout>

@@ -1,31 +1,43 @@
 package com.bang.transpor1.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.DialogFragment;
+import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.bang.transpor1.MainActivity;
 import com.bang.transpor1.R;
 import com.bang.transpor1.bean.ClickEvent;
 import com.bang.transpor1.bean.ItemModel;
+import com.bang.transpor1.util.ToastUtils;
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 
 /**
+ * P
  * Created by Bnag on 2018/10/13.
  */
 public class PayDialogAdapter extends RecyclerView.Adapter<PayDialogAdapter.BaseViewHolder> {
     private ArrayList<ItemModel> dataList = new ArrayList<>();
     private int lastPressIndex = -1;
+    private Context context;
+
+    public PayDialogAdapter(Context context) {
+        this.context = context;
+    }
 
     public void replaceAll(ArrayList<ItemModel> list) {
         dataList.clear();
@@ -82,25 +94,24 @@ public class PayDialogAdapter extends RecyclerView.Adapter<PayDialogAdapter.Base
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-                    Log.e("TAG", "OneViewHolder: "+position+"==>"+dataList.get(position).data);
+                    Log.e("TAG", "OneViewHolder: " + position + "==>" + dataList.get(position).data);
                     if (lastPressIndex == position) {
                         lastPressIndex = -1;
                     } else {
                         lastPressIndex = position;
                     }
-                    EventBus.getDefault().post(new ClickEvent(ClickEvent.Type.TV_SEND_MSG,dataList.get(position).data));
+                    EventBus.getDefault().post(new ClickEvent(ClickEvent.Type.TV_SEND_MSG, dataList.get(position).data));
                     notifyDataSetChanged();
                 }
 
             });
-
         }
 
         @Override
         void setData(Object data) {
             if (data != null) {
                 int text = (int) data;
-                tv.setText(text+"");
+                tv.setText(text + "");
                 if (getAdapterPosition() == lastPressIndex) {
                     tv.setSelected(true);
                     tv.setTextColor(ContextCompat.getColor(itemView.getContext(), R.color.white));
@@ -116,26 +127,56 @@ public class PayDialogAdapter extends RecyclerView.Adapter<PayDialogAdapter.Base
     private class TWoViewHolder extends BaseViewHolder {
         private EditText et;
 
+        @SuppressLint("ClickableViewAccessibility")
         public TWoViewHolder(View view) {
             super(view);
-            et = (EditText) view.findViewById(R.id.et);
+            et = view.findViewById(R.id.et);
+/*            et.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ToastUtils.showToast(context,"onCLoss");
+                }
+            });*/
             et.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 }
+
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                 }
+
                 //一般我们都是在这个里面进行我们文本框的输入的判断，上面两个方法用到的很少
                 @Override
                 public void afterTextChanged(Editable s) {
                     String etString = et.getText().toString().trim();
-                    EventBus.getDefault().post(new ClickEvent(ClickEvent.Type.ET_SEND_MSG,etString));
-                    Log.e("Bang2:",etString+"");
+                    EventBus.getDefault().post(new ClickEvent(ClickEvent.Type.ET_SEND_MSG, etString));
+                    Log.e("Bang2:", etString + "");
                 }
             });
-            Log.e("TAG", "twoViewHolder: "+et.getText().toString().trim());
 
+            et.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    Log.e("Bang2:", "true true true true");
+                    //  弹出软键盘
+/*                    InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);*/
+
+                    InputMethodManager manager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                       /* if (getCurrentFocus() != null && getCurrentFocus().getWindowToken() != null) {
+                            manager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                        }*/
+                        manager.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+                        et.requestFocus();//强制使其获取焦点
+                    }
+
+                    return false;
+                }
+            });
+
+            Log.e("TAG", "twoViewHolder: " + et.getText().toString().trim());
 //            EventBus.getDefault().post(new ClickEvent(new ClickEvent(ClickEvent.Type.SEND_MSG ,view , et.getText().toString().trim() )));
         }
 

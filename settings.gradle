@@ -1,1 +1,1 @@
-include ':app', ':testt'
+include ':app', ':testt', ':demomycharts'

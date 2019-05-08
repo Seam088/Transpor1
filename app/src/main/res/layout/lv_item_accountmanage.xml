@@ -6,13 +6,12 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal">
 
+    <!--style="@style/CustomCheckboxTheme2"-->
     <CheckBox
         android:id="@+id/cb_account"
-        style="@style/CustomCheckboxTheme2"
-        android:layout_width="wrap_content"
+        android:layout_width="26dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        />
+        android:layout_gravity="center"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,11 +22,12 @@
             android:id="@+id/tv_carPlate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/tv_amount"
-            android:layout_marginTop="15dp"
+            android:layout_above="@+id/btn_account_recharge"
+            android:layout_marginBottom="11dp"
+            android:layout_marginStart="17dp"
+            android:layout_toEndOf="@+id/iv_account_carlog"
             android:text="辽A100001"
-            android:textSize="18dp"
+            android:textSize="14dp"
             android:textStyle="italic|bold" />
 
         <TextView
@@ -36,9 +36,9 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/tv_carPlate"
             android:layout_alignBottom="@+id/tv_carPlate"
-            android:layout_toEndOf="@+id/tv_amount"
+            android:layout_alignEnd="@+id/btn_account_recharge"
             android:text="车主:张三"
-            android:textSize="18dp"
+            android:textSize="14dp"
             android:textStyle="italic|bold" />
 
         <ImageView
@@ -48,6 +48,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:src="@drawable/zhonghua"
+            android:padding="10dp"
             tools:ignore="UnknownId" />
 
         <TextView
@@ -55,19 +56,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/iv_account_carlog"
-            android:layout_centerHorizontal="true"
-            android:text="余额:100元"
+            android:layout_alignStart="@+id/tv_carPlate"
             android:paddingBottom="4dp"
+            android:text="余额:100元"
             android:textColor="#f23232"
-            android:textSize="20sp" />
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/adv"
             android:layout_width="160dp"
             android:layout_height="30dp"
-            android:layout_below="@+id/tv_amount"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
             android:focusable="false"></TextView>
 
         <Button

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:paddingTop="10dp">
+
+   <LinearLayout
+       android:layout_width="0dp"
+       android:layout_weight="2.5"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+       <TextView
+           android:id="@+id/tv_lv_childrechargerecord_time"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_weight="1"
+           android:text="2017.05.01"
+           android:gravity="center|bottom"/>
+       <TextView
+           android:id="@+id/tv_lv_childrechargerecord_timeWeek"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_weight="1"
+           android:text="星期五"
+           android:gravity="center|top"/>
+   </LinearLayout>
+<!--    "amount": 600, 余额
+    "charge": 500,  充值
+    "who": "师俊",
+    "time": "2018-10-17 20:54:41",
+    "carno": "辽A10001"-->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="8"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_lv_childrechargerecord_rechargeName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="充值人:XXX"
+                android:textSize="16dp"
+                android:textColor="#000000"/>
+            <TextView
+                android:id="@+id/tv_lv_childrechargerecord_carNO"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="车牌号:鲁A12141"
+                android:textSize="16dp"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_lv_childrechargerecord_rechargeNum"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="充值:0"
+            android:textSize="16dp"
+            android:textColor="#000000"
+            android:gravity="center|left"/>
+
+        <TextView
+            android:id="@+id/tv_lv_childrechargerecord_balanceNum"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="余额 : 0"
+            android:textSize="16dp"
+            android:textColor="#000000"
+            android:gravity="center|left"/>
+
+        <TextView
+            android:id="@+id/tv_lv_childrechargerecord_rechargeTime"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="充值时间 : 00:00:00 00:00"
+            android:textSize="16dp"
+            android:textColor="#000000"
+            android:gravity="center|left"
+            android:layout_marginBottom="5dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#919090"
+            android:layout_marginRight="10dp"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -11,7 +11,8 @@
     </style>
 
     <!--加载对话窗-->
-    <style name="BaseDialog" parent="@android:style/Theme.Dialog"/>
+    <style name="BaseDialog" parent="@android:style/Theme.Dialog" />
+
     <style name="Theme.Light.LoadingDialog" parent="@style/BaseDialog">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowFrame">@null</item>
@@ -24,8 +25,7 @@
     </style>
 
     <!--自定义View-material的样式-->
-    <style name="TextAppearance.MaterialCalendarWidget.Header"
-        parent="android:TextAppearance.DeviceDefault.Small">
+    <style name="TextAppearance.MaterialCalendarWidget.Header" parent="android:TextAppearance.DeviceDefault.Small">
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -75,4 +75,34 @@
         <item name="android:windowEnterAnimation">@anim/dialog_enter_anim</item>
         <item name="android:windowExitAnimation">@anim/dialog_exit_anim</item>
     </style>
+
+
+    <style name="DialogTheme" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item><!--透明主题-->
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="MyDialogAlpha">
+        <item name="android:windowEnterAnimation">@anim/dialog_alpha_enter</item><!--进入动画-->
+        <item name="android:windowExitAnimation">@anim/dialog_alpha_exit</item><!--出去动画-->
+    </style>
+
+    <style name="MyDialogScale">
+        <item name="android:windowEnterAnimation">@anim/dialog_scale_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_scale_exit</item>
+    </style>
+
+    <style name="MyDialogTranslate">
+        <item name="android:windowEnterAnimation">@anim/dialog_translate_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_translate_exit</item>
+    </style>
+
+    <style name="MyDialogRotate">
+        <item name="android:windowEnterAnimation">@anim/dialog_roate_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_roate_exit</item>
+    </style>
+
+    <style name="TranslucentTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="TranslucentTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

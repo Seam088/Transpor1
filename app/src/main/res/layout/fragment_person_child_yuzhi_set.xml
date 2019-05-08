@@ -1,0 +1,61 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bang.transpor1.fragment.PersonChildYuzhiSetFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="30dp"
+        android:paddingLeft="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_yuzhi"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center|left"
+            android:textSize="16sp"
+            android:inputType="number"
+            android:text="当前小车账户余额告警阈值未设置！"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center|left"
+                android:textSize="16sp"
+                android:text="设置小车账户余额告警阈值 ："/>
+            <EditText
+                android:id="@+id/et_yuzhi"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:hint="0"
+                android:inputType="number"
+                android:maxLength="5"
+                android:maxLines="1"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center|left"
+                android:textSize="16sp"
+                android:text="元"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_yuzhi_set"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="设置"
+            android:background="@drawable/btn_login"
+            android:layout_marginTop="30dp"
+            android:textColor="#ffffff"
+            android:textSize="22sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
+    </LinearLayout>
+
+</FrameLayout>

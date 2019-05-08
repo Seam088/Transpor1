@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="120dp"
+    android:layout_gravity="center"
+    android:background="@drawable/view_left_help"
+    android:orientation="horizontal"
+    android:layout_margin="3dp"
+    android:layout_marginLeft="3dp"
+    android:layout_marginRight="3dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="1.3"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_lifeIndex"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:padding="10dp"
+            android:src="@drawable/t2_2" />
+
+        <TextView
+            android:id="@+id/tv_lifeIndex_zhishu"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="紫外线指数"
+            android:gravity="center|top"
+            android:textColor="#187DB6"
+            android:textSize="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_lifeIndex_dengji"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom|left"
+            android:paddingLeft="5dp"
+            android:paddingBottom="5dp"
+            android:text="中等(100)"
+            android:textSize="15sp"
+            android:textColor="#187DB6"/>
+
+        <TextView
+            android:id="@+id/tv_lifeIndex_miaoshu"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="top|left"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:text="涂擦 SPF 大于 15、 PA+防晒护肤品"
+            android:textSize="10sp"
+            android:textColor="#8E908D"/>
+    </LinearLayout>
+</LinearLayout>

@@ -51,7 +51,6 @@ public class ExitLogonFragment extends Fragment{
             }
             final AlertDialog alertDialog = new AlertDialog.Builder(activity)
                     .setTitle("退出登录")
-                    .setView(view)
                     .setNegativeButton("取消退出",null)
                     .setPositiveButton("退出登录",null)
                     .show();
@@ -62,8 +61,6 @@ public class ExitLogonFragment extends Fragment{
                     startActivity(intent);
                 }
             });
-
-
         }
     }
 

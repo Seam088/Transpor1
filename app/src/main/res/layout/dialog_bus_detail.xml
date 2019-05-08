@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/link_back">
+   <!-- <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="公交车载客查询"
+        android:textSize="17sp"
+        android:gravity="center|left"
+        android:background="@drawable/link_back2"
+        android:paddingLeft="10dp"
+        />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="序号"
+            android:gravity="center"
+            android:textColor="@color/grey_800"
+            android:background="@drawable/link_back2"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="公交车编号"
+            android:gravity="center"
+            android:textColor="@color/grey_800"
+            android:background="@drawable/link_back2"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="承载人数"
+            android:gravity="center"
+            android:textColor="@color/grey_800"
+            android:background="@drawable/link_back2"/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_bus_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"></ListView>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="合计"
+            android:gravity="center"
+            android:textColor="@color/grey_800"
+            android:background="@drawable/link_back2"/>
+        <TextView
+            android:id="@+id/tv_bus_carryingNum_total"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="0"
+            android:gravity="center"
+            android:textColor="@color/grey_800"
+            android:background="@drawable/link_back2"/>
+    </LinearLayout>
+
+</LinearLayout>

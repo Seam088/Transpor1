@@ -1,14 +1,24 @@
 package com.bang.transpor1;
 
+import android.app.AlertDialog;
+import android.app.Application;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.net.NetworkInfo;
 import android.os.Build;
+import android.provider.Settings;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CheckedTextView;
@@ -19,7 +29,12 @@ import android.widget.Toast;
 
 import com.bang.transpor1.bean.ConstantValue;
 import com.bang.transpor1.request.PostUtil;
+import com.bang.transpor1.util.Base64Utils;
+import com.bang.transpor1.util.MD5Utils;
+import com.bang.transpor1.util.NetworkUtils;
 import com.bang.transpor1.util.SharePreUtil;
+import com.bang.transpor1.weight.CommonDialog;
+import com.bang.transpor1.weight.IsNetworkDialog;
 import com.bang.transpor1.weight.LoadingDialog;
 
 import org.json.JSONException;
@@ -28,18 +43,22 @@ import org.json.JSONObject;
 
 import org.json.JSONObject;
 
-public class LoginActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener,View.OnClickListener{
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
-    private EditText et_username,et_pwd;
+public class LoginActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
+
+    private EditText et_username, et_pwd;
     private CheckBox cb_remPwd;
     private CheckedTextView ctv;
-    private String username,password;
+    private String username, password;
     private SharedPreferences sp;
     private Boolean isRemPsd;
     private ImageButton ib_pwd_gone;
     private Button btn_login;
     private Button btn_reg;
     private LoadingDialog mLoadingDialog;
+    private MD5Utils md5Util = new MD5Utils();
+    private static Dialog mWifiDialog = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,34 +83,34 @@ public class LoginActivity extends AppCompatActivity implements CompoundButton.O
 
         //控制登录用户民图标大小
         Drawable drawable_username = getResources().getDrawable(R.drawable.username); // username
-        drawable_username.setBounds(0,0,35,35);
+        drawable_username.setBounds(0, 0, 35, 35);
         Drawable drawable1_password = getResources().getDrawable(R.drawable.password);
-        drawable1_password.setBounds(0,0,35,35);
+        drawable1_password.setBounds(0, 0, 35, 35);
         Drawable drawable1_password_gone = getResources().getDrawable(R.drawable.password_gone);
-        drawable1_password.setBounds(0,0,35,35);
-        et_username.setCompoundDrawables(drawable_username,null,null,null);
-        et_pwd.setCompoundDrawables(drawable1_password,null,drawable1_password_gone,null);
+        drawable1_password.setBounds(0, 0, 35, 35);
+        et_username.setCompoundDrawables(drawable_username, null, null, null);
+        et_pwd.setCompoundDrawables(drawable1_password, null, drawable1_password_gone, null);
     }
 
     private void initData() {
         //判断是否记住密码
-        isRemPsd = SharePreUtil.getBoolean(getApplicationContext(), ConstantValue.ISREMPWD,false);
+        isRemPsd = SharePreUtil.getBoolean(getApplicationContext(), ConstantValue.ISREMPWD, false);
         if (isRemPsd) {
             cb_remPwd.setChecked(isRemPsd);//勾选记住密码
             //把密码和账号输入到输入框中
             et_username.setText("" + getUsername());
-            et_pwd.setText("" + getPsd() );
+            et_pwd.setText("" + Base64Utils.decryptBASE64(getPsd()));  //加密一下
         } else {
             cb_remPwd.setChecked(isRemPsd);//勾选记住密码
-            et_username.setText("" +getUsername());   //把用户账号放到输入账号的输入框中
+            et_username.setText("" + getUsername());   //把用户账号放到输入账号的输入框中
         }
     }
 
-    public String getEtAccount(){
+    public String getEtAccount() {
         return et_username.getText().toString().trim();
     }
 
-    public String getEtpassword(){
+    public String getEtpassword() {
         return et_pwd.getText().toString().trim();
     }
 
@@ -100,7 +119,7 @@ public class LoginActivity extends AppCompatActivity implements CompoundButton.O
      */
     public String getUsername() {
         //获取SharedPreferences对象，使用自定义类的方法来获取对象
-        return SharePreUtil.getString(getApplicationContext(),ConstantValue.USERNAME,"");
+        return SharePreUtil.getString(getApplicationContext(), ConstantValue.USERNAME, "");
     }
 
     /**
@@ -108,74 +127,83 @@ public class LoginActivity extends AppCompatActivity implements CompoundButton.O
      */
     public String getPsd() {
         //获取SharedPreferences对象，使用自定义类的方法来获取对象
-        return SharePreUtil.getString(getApplicationContext(),ConstantValue.PASSWORD,"");
+        return SharePreUtil.getString(getApplicationContext(), ConstantValue.PASSWORD, "");
     }
 
     /**
-    * CheckBox的监听方法 （记住密码）
-    **/
+     * CheckBox的监听方法 （记住密码）
+     **/
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 //        isChecked = SharePreUtil.getBoolean(getApplicationContext(),ConstantValue.ISREMPWD,false);
-        if (isChecked){
-            SharePreUtil.saveBoolean(getApplicationContext(),ConstantValue.ISREMPWD,isChecked);
-        }else {
-            SharePreUtil.saveBoolean(getApplicationContext(),ConstantValue.ISREMPWD,isChecked);
+        if (isChecked) {
+            SharePreUtil.saveBoolean(getApplicationContext(), ConstantValue.ISREMPWD, isChecked);
+        } else {
+            SharePreUtil.saveBoolean(getApplicationContext(), ConstantValue.ISREMPWD, isChecked);
         }
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btn_login:
-                SharePreUtil.saveString(getApplicationContext(),ConstantValue.USERNAME,getEtAccount());
-                //判断是否保存密码
-                if (isRemPsd){
-                    SharePreUtil.saveString(getApplicationContext(),ConstantValue.PASSWORD,getEtpassword());  //把checkBox选中，传到sp
+        //判断当前网络是否可以用
+        if (NetworkUtils.isNetWorkAvailable(this)) {
+            switch (v.getId()) {
+                case R.id.btn_login:
+                    SharePreUtil.saveString(getApplicationContext(), ConstantValue.USERNAME, getEtAccount());
+                    //判断是否保存密码
+                    if (isRemPsd) {
+                        //对密码进行 md5加密
+//                    String password = md5Util.encrypt(getEtpassword());
+                        SharePreUtil.saveString(getApplicationContext(), ConstantValue.PASSWORD, Base64Utils.encryptBASE64(getEtpassword()));  //把checkBox选中，传到sp
 //                    Toast.makeText(getApplicationContext(),"password=>"+getPsd(),Toast.LENGTH_SHORT).show();
-                }else{
-                    SharePreUtil.clearString(getApplicationContext(),ConstantValue.PASSWORD);  //清除sp保存的数据密码
-                }
-                 login();  //登录
-                break;
-            case R.id.ib_pwd_gone:  //密码是否可见
-                if (ib_pwd_gone.isSelected()){
-                    ib_pwd_gone.setSelected(false);
-                    et_pwd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    //密码不可见
-                    ib_pwd_gone.setBackgroundResource(R.drawable.login_eye_c);
-                }else {
-                    ib_pwd_gone.setSelected(true);
-                    //密码可见
-                    ib_pwd_gone.setBackgroundResource(R.drawable.login_eye_o);
-                    et_pwd.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                }
-                break;
-            case  R.id.btn_reg:
+                    } else {
+                        SharePreUtil.clearString(getApplicationContext(), ConstantValue.PASSWORD);  //清除sp保存的数据密码
+                    }
+                    login();  //登录
+                    break;
+                case R.id.ib_pwd_gone:  //密码是否可见
+                    if (ib_pwd_gone.isSelected()) {
+                        ib_pwd_gone.setSelected(false);
+                        et_pwd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                        //密码不可见
+                        ib_pwd_gone.setBackgroundResource(R.drawable.login_eye_c);
+                    } else {
+                        ib_pwd_gone.setSelected(true);
+                        //密码可见
+                        ib_pwd_gone.setBackgroundResource(R.drawable.login_eye_o);
+                        et_pwd.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    }
+                    break;
+                case R.id.btn_reg:
 //                Toast.makeText(getApplicationContext(),"reg",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(LoginActivity.this,RegActivity.class);
-                startActivity(intent);
-                break;
+                    Intent intent = new Intent(LoginActivity.this, RegActivity.class);
+                    startActivity(intent);
+                    break;
+            }
+        } else {   //没有网络连接
+            hideLoading();
+            Toast.makeText(LoginActivity.this, "网络不给力，请连接网络！", Toast.LENGTH_SHORT).show();
+            IsNetworkDialog.showNetWorkDlg(LoginActivity.this,mWifiDialog);  //跳转网络设置Dialog
         }
     }
 
-    private void login(){
+    private void login() {
         //先做一些基本的判断，比如输入的用户命为空，密码为空，网络不可用多大情况，都不需要去链接服务器了，而是直接返回提示错误
-        if (getEtAccount().isEmpty()){
+        if (getEtAccount().isEmpty()) {
             showToast("你输入的账号为空！");
         }
-        if (getEtpassword().isEmpty()){
+        if (getEtpassword().isEmpty()) {
             showToast("你输入的密码为空！");
         }
         //登录一般都是请求服务器来判断密码是否正确，要请求网络，要子线程
         showLoading();//显示加载框
-        Thread loginRunable = new Thread(){
+        Thread loginRunable = new Thread() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void run() {
                 super.run();
                 setLoginBtnClickable(false);//点击登录后，设置登录按钮不可点击状态
-                String str = PostUtil.getLogin(getEtAccount(),getEtpassword());
+                String str = PostUtil.getLogin(getEtAccount(), getEtpassword());
 //                System.out.println("======>"+str);
                 JSONObject jsonObject = null;
                 String result = "";
@@ -186,16 +214,16 @@ public class LoginActivity extends AppCompatActivity implements CompoundButton.O
                     e.printStackTrace();
                 }
 
-                System.out.println("----->"+result);
+                System.out.println("----->" + result);
 
                 //睡眠三秒
                 try {
-                    Thread.sleep(3*1000);
+                    Thread.sleep(3 * 1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
-                System.out.println(getEtAccount() + "<====>"+getEtpassword() );
+                System.out.println(getEtAccount() + "<====>" + getEtpassword());
                 //判断账号和密码
                 if ("ok".equals(result)) {
                     showToast("登录成功");
@@ -224,10 +252,11 @@ public class LoginActivity extends AppCompatActivity implements CompoundButton.O
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(LoginActivity.this, ""+msg, Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "" + msg, Toast.LENGTH_SHORT).show();
             }
         });
     }
+
     /**
      * 显示加载的进度款
      */
@@ -258,6 +287,7 @@ public class LoginActivity extends AppCompatActivity implements CompoundButton.O
      */
     @Override
     public void onBackPressed() {
+        hideLoading();
         if (mLoadingDialog != null) {
             if (mLoadingDialog.isShowing()) {
                 mLoadingDialog.cancel();
@@ -279,4 +309,6 @@ public class LoginActivity extends AppCompatActivity implements CompoundButton.O
         }
         super.onDestroy();
     }
+
+
 }

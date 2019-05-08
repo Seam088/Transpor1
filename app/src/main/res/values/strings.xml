@@ -27,4 +27,142 @@
     <string name="check_login">自动登录</string>
     <string name="login">登录</string>
     <string name="loading">正在加载数据</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="consent_text">
+        "本协议依据我国现行有效的法律、行政法规制定，用户经注册认证同意后，视为完全接受本协议项下全部条款，以约定智能交通与用户的权利与义务。用户协议内容未违反法律、行政法规的禁止性规定，在用户认可的情况下，对用户具有法律约束力。\n\n"
+
+            "1、用户点击智能交通注册页面的同意按钮并完成注册程序、获得智能账号和密码时，视为用户与智能交通已达成《智能交通用户协议》。用户通过智能交通进行购买、消费行为（即用户通过智能交通与定制公交、定制专车、两江游览、的士预约进行的出行休闲娱乐交易）均受本协议相关条款约束。\n"
+            "2、智能交通已提示用户认真阅读《智能交通用户协议》，并已对本协议全部服务条款作出说明，用户一旦同意且注册成功，视为对本协议及前述服务条款和规则均以知晓、理解并接受，同意将其作为确定双方权利义务的依据。\n\n\n"
+
+
+        "一、权利与责任\n\n"
+
+        "1、智能交通保护用户个人隐私，不会将用户个人信息公开，且保证用户个人信息仅在本软件范围内使用。\n"
+        "2、用户应当遵守法律法规妥善使用和保护智能交通账号及密码，对用户智能交通账号登录后实施的操作及产生后果承担全部责任。当用户发现智能交通账号被未经授权的第三方使用或存在其他账号安全问题时，应立即有效的通知智能交通，智能交通将遵照用户指示暂停该智能交通账号的服务。智能交通有权在合理时间内对用户的暂停服务指示采取行动，但不对用户已遭受的损失承担任何责任。用户不得擅自将智能交通账号赠与、借用、租用、转让或其他方式给他人。\n"
+        "3、用户通过智能交通浏览出行娱乐服务产品信息时，应当仔细阅读服务产品信息中包含的全部内容，包括但不限于服务名称、种类、数量、质量、价格、有效期、退款条件、售后服务等内容。用户应充分阅读、了解服务的有效期、预约时间及退款条件等重要内容，必须完全接受服务产品信息中包含的全部内容后，方可点击购买。\n"
+        "4、用户支付价款成功后，智能交通将向用户发送电子消费凭证，用户可凭电子消费凭证向服务提供商获取出行娱乐服务产品。\n"
+        "5、用户应当妥善保管电子消费凭证，因用户保管不善导致电子消费凭证被他人使用的，由用户自行承担损失。\n"
+        "6、用户要求提供服务发票、其他付款凭证、服务单据的，应在消费时向服务提供商索要，发票金额以实际支付的销售价款为准。\n"
+        "7、凭电子消费凭证已获得出行或娱乐服务的，电子消费凭证即失效，用户无权要求公交智通退款或重新发送电子消费凭证。\n"
+        "8、用户成功支付之后，未在预定日期消费该服务产品的电子消费凭证失效，用户无权要求公交智通退款或重新发送电子消费凭证。\n"
+        "9、用户付款成功后，因不可抗力或服务提供商的原因导致服务提供商无法向用户提供服务产品，经智能交通核实之后，智能交通将协助用户向服务提供商索要退款。\n"
+        "10、用户已实际消费的服务产品，无权要求服务提供商退款或要求智能交通代替服务提供商进行退款，但对服务存在其他严重质量问题或违反《网络交易管理办法》、《中华人民共和国消费者权益保护法》的除外。\n"
+        "11、用户在消费服务过程中，如发现服务产品与订单内容不符或存在质量、服务态度等其他问题，应与服务提供商采取协商或其他方式予以解决，智能交通可向用户提供服务提供商的真实信息并积极协助用户与服务提供商解决争议。\n"
+        "12、用户在消费服务过程中发生安全事故的，由用户依法向事故责任方索赔；智能交通将协助用户依法维权。\n"
+        "13、用户在智能交通上交易成功之后，未进行实际消费的，若在服务提供商规定可退款时期内申请退款的，智能交通审核通过后将于15个工作日内将款项按照用户支付路径原路退回至用户的支付账号；如用户在30日内申请退款的总金额大于或等于人民币5000元，则属于大额退款，智能交通针对大额退款将于60日内将款项按照用户的支付路径原路退回至用户的支付账户。如果服务提供商已提供《退款说明》的条款，以服务提供商的退款说明为标准。\n\n\n"
+
+        "二、特别声明\n\n"
+
+        "14、用户与服务提供商之间进行的线下直接交易不属于智能交通交易，智能交通对该类直接交易事项不承担任何责任，因直接交易事项引发的一切争议由用户与服务提供商自行解决，智能交通不承担任何责任。线下直接交易的情形包括：用户未在智能交通与商家成立订单；用户虽在智能交通上成立订单，但未实际支付价款。\n"
+        "15、发生以下情形，导致智能交通不能提供服务或延迟服务的，智能交通将免于承担任何责任：信息网络设备维护、信息网络连接故障、电脑、通讯或其他系统的故障、电力故障、罢工、劳动争议、暴乱、起义、骚乱、生产力或生产资料不足、火灾、洪水、风暴、爆炸、战争、政府行为、司法行政机关的命令、其他不可抗力或第三方的不作为而造成的不能服务或延迟服务的。\n"
+        "16、对于恶意注册，反复交易退款，侵害智能交通实际交易的情况，智能交通有权采取停止服务、封停账号等措施，并依法追究用户的法律责任。\n"
+        "17、用户不得以虚构事实等方式恶意诋毁智能交通或服务提供商的商誉，不得对服务进行虚构评价或虚假投诉。\n"
+        "18、如因用户提供的信息不真实、不完整或不准确给智能交通或商家造成损失的，智能交通有权要求用户进行赔偿，并将协助服务提供商向用户索赔。\n"
+        "19、如因用户违反法律法规规定或本协议约定，在智能交通或利用智能交通服务从事非法活动，智能交通有权采取终止服务、注销账号等措施，并依法追究用户的法律责任。\n\n\n"
+
+        "三、争议解决\n\n"
+        “1、 因本协议引起的或与本协议有关的一切争议，双方同意提交武汉仲裁委员会，按申请仲裁时该会现行有效的仲裁规则进行仲裁。仲裁是终局的，对双方均有约束力。 \n\n\n”
+
+
+        "四、协议生效\n\n"
+
+        "本协议于用户点击智能交通注册页面的同意注册并完成注册程序、获得智能交通账号和密码时生效，对智能交通和用户均具约束力。\n\n"
+
+
+        "五、服务协议的修改\n"
+
+        "智能交通有权在必要时修改本协议，本协议条款一旦发生变动，将会在重要页面上提示修改内容。如果不同意所改动的内容，用户可以主动取消获得的智能交通客户服务。如果用户继续享用智能交通信息服务，则视为接受本协议的变动。智能交通保留随时修改本协议条款的权利，不需对用户或第三方负责。\n\n"
+
+    </string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+    <string name="action_settings">Settings</string>
 </resources>

@@ -25,8 +25,19 @@ public class PubcalListAdater extends BaseAdapter {
         this.carId = carId;
     }
 
-    public void addList(Pubcar pubcar){
-        pubcars.offer(pubcar);
+    public void addList(Pubcar pubcar) {
+/*        if (pubcars.size() >= 5) {
+            pubcars.remove(0);
+            pubcars.offer(pubcar);
+        } else {
+            pubcars.offer(pubcar);
+        }*/
+        if (pubcars.size() >= 5) {
+            pubcars.clear();
+            pubcars.offer(pubcar);
+        } else {
+            pubcars.offer(pubcar);
+        }
         notifyDataSetChanged();
     }
 
@@ -79,26 +90,28 @@ public class PubcalListAdater extends BaseAdapter {
         }else if (carId == 3) {
             platform = "幸福小区";
         }*/
-        //站台
-        platform = new String[]{"中医院站","联想大厦站","第一中学站","幸福小区"};
-        String distance = String.valueOf(pubcars.get(position).getData().get(0).getDistance() * 1000);
-        parentListItem.tv_bus_title.setText(platform[position] + "");
-        parentListItem.tv_busId_one.setText("乘坐" + pubcars.get(position).getData().get(0).getBus() + "号车");
-        parentListItem.tv_busId1_one.setText(pubcars.get(position).getData().get(0).getBus() + "号（" + pubcars.get(position).getData().get(0).getPersons() + "人）");
-        parentListItem.tv_bustime_one.setText(pubcars.get(position).getData().get(0).getBus() + "号车" + "5分钟到达");
-        parentListItem.tv_bustime1_one.setText("5分钟");
-        parentListItem.tv_busdistance_one.setText("步行" + distance.substring(0, distance.indexOf(".") + 3) + "米，到达" + platform[position]);
-        parentListItem.tv_busdistance1_one.setText(distance.substring(0, distance.indexOf(".") + 3) + "米");
+        if (pubcars.get(position).getData().size() > 0) {
+            //站台
+            platform = new String[]{"中医院站", "联想大厦站", "第一中学站", "幸福小区"};
+            String distance = String.valueOf(pubcars.get(position).getData().get(0).getDistance() * 1000);
+            String distance1 = String.valueOf(pubcars.get(position).getData().get(1).getDistance() * 1000);
+            if (position < platform.length && position > 0) {
+                parentListItem.tv_bus_title.setText(platform[position] + "");
+                parentListItem.tv_busdistance_two.setText("步行" + distance1.substring(0, distance1.indexOf(".") + 3) + "米，到达" + platform[position]);
+                parentListItem.tv_busdistance_one.setText("步行" + distance.substring(0, distance.indexOf(".") + 3) + "米，到达" + platform[position]);
+            }
+            parentListItem.tv_busId_one.setText("乘坐" + pubcars.get(position).getData().get(0).getBus() + "号车");
+            parentListItem.tv_busId1_one.setText(pubcars.get(position).getData().get(0).getBus() + "号（" + pubcars.get(position).getData().get(0).getPersons() + "人）");
+            parentListItem.tv_bustime_one.setText(pubcars.get(position).getData().get(0).getBus() + "号车" + "5分钟到达");
+            parentListItem.tv_bustime1_one.setText("5分钟");
+            parentListItem.tv_busdistance1_one.setText(distance.substring(0, distance.indexOf(".") + 3) + "米");
 
-        String distance1 = String.valueOf(pubcars.get(position).getData().get(1).getDistance() * 1000);
-        parentListItem.tv_busId_two.setText("乘坐" + pubcars.get(position).getData().get(1).getBus() + "号车");
-        parentListItem.tv_busId1_two.setText(pubcars.get(position).getData().get(1).getBus() + "号（" + pubcars.get(position).getData().get(1).getPersons() + "人）");
-        parentListItem.tv_bustime_two.setText(pubcars.get(position).getData().get(1).getBus() + "号车" + "5分钟到达");
-        parentListItem.tv_bustime1_two.setText("5分钟");
-
-        parentListItem.tv_busdistance_two.setText("步行" + distance1.substring(0, distance1.indexOf(".") + 3) + "米，到达" + platform[position]);
-        parentListItem.tv_busdistance1_two.setText(distance1.substring(0, distance1.indexOf(".") + 3) + "米");
-
+            parentListItem.tv_busId_two.setText("乘坐" + pubcars.get(position).getData().get(1).getBus() + "号车");
+            parentListItem.tv_busId1_two.setText(pubcars.get(position).getData().get(1).getBus() + "号（" + pubcars.get(position).getData().get(1).getPersons() + "人）");
+            parentListItem.tv_bustime_two.setText(pubcars.get(position).getData().get(1).getBus() + "号车" + "5分钟到达");
+            parentListItem.tv_bustime1_two.setText("5分钟");
+            parentListItem.tv_busdistance1_two.setText(distance1.substring(0, distance1.indexOf(".") + 3) + "米");
+        }
         return convertView;
     }
 

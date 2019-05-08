@@ -35,11 +35,11 @@
             android:gravity="center"
             android:textStyle="bold"
             android:textSize="20dp"/>
-        <ImageView
+        <Button
             android:id="@+id/iv_menu"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:src="@drawable/icon_menu"
+            android:background="@drawable/icon_menu"
             android:layout_height="match_parent" />
         </LinearLayout>
     </android.support.v7.widget.Toolbar>

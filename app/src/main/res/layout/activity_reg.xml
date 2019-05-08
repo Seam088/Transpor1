@@ -7,10 +7,12 @@
     android:background="@drawable/login_background"
     android:orientation="vertical"
     tools:context="com.bang.transpor1.RegActivity">
+
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#00ffffff">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -20,25 +22,27 @@
                 android:id="@+id/imgbtn_reg_back"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/back_w"
                 android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="#00ffffff"
                 android:paddingRight="10dp"
-                android:background="#00ffffff"/>
+                android:src="@drawable/back_w" />
+
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="0dp"
-                android:layout_weight="10"
                 android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:gravity="center"
                 android:text="注册"
                 android:textColor="#ffffff"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textSize="22dp"/>
+                android:textSize="22dp"
+                android:textStyle="bold" />
+
             <ImageView
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
@@ -59,73 +63,96 @@
         android:textColor="#ffffff"
         android:textColorHint="#ffffff" />
 
-        <EditText
-            android:id="@+id/et_reg_pwd"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:paddingLeft="15dp"
-            android:inputType="textPassword|none"
-            android:hint="请输入6-12位的密码"
-            android:selectAllOnFocus="true"
-            android:maxLines="1"
-            android:maxLength="12"
-            android:textColorHint="#ffffff"
-            android:textColor="#ffffff"
-            android:background="@drawable/et_login_urn_pwd" />
+    <EditText
+        android:id="@+id/et_reg_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/et_login_urn_pwd"
+        android:hint="请输入6-12位的密码"
+        android:inputType="textPassword|none"
+        android:maxLength="12"
+        android:maxLines="1"
+        android:paddingLeft="15dp"
+        android:selectAllOnFocus="true"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
 
     <EditText
-            android:id="@+id/et_reg_confirmPwd"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:paddingLeft="15dp"
-            android:inputType="textPassword|none"
-            android:hint="确认密码"
-            android:selectAllOnFocus="true"
-            android:maxLines="1"
-            android:maxLength="12"
-            android:textColorHint="#ffffff"
-            android:textColor="#ffffff"
-            android:background="@drawable/et_login_urn_pwd" />
+        android:id="@+id/et_reg_confirmPwd"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/et_login_urn_pwd"
+        android:hint="确认密码"
+        android:inputType="textPassword|none"
+        android:maxLength="12"
+        android:maxLines="1"
+        android:paddingLeft="15dp"
+        android:selectAllOnFocus="true"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
         <EditText
             android:id="@+id/et_reg_verificationCode"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="70dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            android:paddingLeft="15dp"
-            android:inputType="textPassword|none"
+            android:background="@drawable/et_login_urn_pwd"
             android:hint="请输入验证码"
-            android:selectAllOnFocus="true"
-            android:maxLines="1"
+            android:inputType="number"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:maxLength="12"
-            android:textColorHint="#ffffff"
+            android:maxLines="1"
+            android:paddingLeft="15dp"
+            android:selectAllOnFocus="true"
             android:textColor="#ffffff"
-            android:background="@drawable/et_login_urn_pwd" />
-        <TextView
-            android:id="@+id/tv_reg_obtainCode"
+            android:textColorHint="#ffffff" />
+
+        <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|right"
-            android:layout_marginRight="60dp"
-            android:text="获取验证码"
-            android:textColorHint="#ffffff"
-            android:textColor="#ffffff"
-            />
+            android:layout_marginRight="60dp">
+            <TextView
+                android:id="@+id/tv_reg_obtainCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获取验证码"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:visibility="visible"/>
+            <com.bang.transpor1.weight.VerifyCode
+                android:id="@+id/verifuCode_reg"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                app:codeBackground="#25ffffff"
+                app:pointNum="20"
+                app:linNum="4"
+                app:isContainChar="true"
+                app:codeTextSize="35sp"
+                android:forceHasOverlappingRendering="true"
+                app:codeLength="4"
+                android:visibility="gone"/>
+        </FrameLayout>
     </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="50dp"
-        android:orientation="horizontal"
-        android:layout_marginRight="50dp">
+        android:layout_marginRight="50dp"
+        android:orientation="horizontal">
 
         <CheckBox
             android:id="@+id/cb_agree_service"
@@ -135,13 +162,14 @@
             android:layout_gravity="center_vertical"
             android:text="    同意服务使用协议"
             android:textColor="#ffffff" />
+
         <CheckedTextView
             android:id="@+id/ctv_userRegAgreement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="   用户注册协议"
-            android:textColor="#FE4F4C"
-            android:layout_gravity="center"/>
+            android:textColor="#FE4F4C" />
     </LinearLayout>
 
     <Button
@@ -150,9 +178,9 @@
         android:layout_height="60dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/btn_login"
         android:text="注册"
-        android:layout_marginTop="30dp"
         android:textColor="#ffffff"
         android:textSize="22sp" />
 
